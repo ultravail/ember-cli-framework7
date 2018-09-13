@@ -2,7 +2,7 @@ import { schedule } from '@ember/runloop';
 
 export function initialize(application) {
   schedule('afterRender', function() {
-    container.lookup('service:framework7').initSwipePanels('left');
+    application.lookup('service:framework7').initSwipePanels('left');
   });
 }
 
