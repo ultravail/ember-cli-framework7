@@ -7,6 +7,15 @@ module.exports = function(defaults) {
     // Add options here
   });
 
+  app.import('node_modules/framework7/js/framework7.min.js');
+/*
+  app.import('node_modules/framework7/js/framework7.min.js', {
+    using: [
+      { transformation: 'amd', as: 'framework7' }
+    ]
+  });
+*/
+
   /*
     This build file specifies the options for the dummy test app of this
     addon, located in `/tests/dummy`
