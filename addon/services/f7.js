@@ -1,7 +1,8 @@
 /* globals Framework7 */
-import Ember from 'ember';
+import $ from 'jquery';
 
-const { Service, computed } = Ember;
+import Service from '@ember/service';
+import { computed } from '@ember/object';
 
 export default Service.extend({
   f7: null,
@@ -23,7 +24,7 @@ export default Service.extend({
   _f7Init() {
     const f7 = this.get('f7');
     if(f7.theme){
-      Ember.$('body').addClass(f7.theme);
+      $('body').addClass(f7.theme);
     }
   },
 

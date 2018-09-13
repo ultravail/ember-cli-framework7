@@ -1,6 +1,6 @@
-import Ember from 'ember';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
+export default Component.extend({
   classNameBindings: [':page', 'navbar:navbar-fixed', 'toolbar:toolbar-fixed'],
   navbar: undefined,
   toolbar: undefined,

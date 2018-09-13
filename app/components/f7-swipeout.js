@@ -1,6 +1,7 @@
-import Ember from 'ember';
+import { scheduleOnce } from '@ember/runloop';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
+export default Component.extend({
   tagName: 'li',
   classNames: ['swipeout'],
 
@@ -10,7 +11,7 @@ export default Ember.Component.extend({
     var index = parent.children().index(this.$());
     var clone = this.$().clone();
     clone.find('script').remove();
-    Ember.run.scheduleOnce('afterRender', function() {
+    scheduleOnce('afterRender', function() {
       var elem = parent.children()[index];
       if(elem) {
         $(parent.children()[index]).before(clone);

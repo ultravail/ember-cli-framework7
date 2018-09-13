@@ -1,3 +1,4 @@
+import { later } from '@ember/runloop';
 import Ember from 'ember';
 
 export default Ember.ArrayController.extend({
@@ -21,7 +22,7 @@ export default Ember.ArrayController.extend({
     },
 
     refresh: function(deferred) {
-      Ember.run.later(this, function() {
+      later(this, function() {
         deferred.resolve();
       }, 1000);
     },

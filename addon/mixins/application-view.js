@@ -1,6 +1,6 @@
-import Ember from 'ember';
+import Mixin from '@ember/object/mixin';
 
-export default Ember.Mixin.create({
+export default Mixin.create({
   didInsertElement: function() {
     // initialize swipeout
     if (this.get('f7InitSwipeout') !== false) {

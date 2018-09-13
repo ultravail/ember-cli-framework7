@@ -1,6 +1,7 @@
-import Ember from 'ember';
+import { defer } from 'rsvp';
+import Mixin from '@ember/object/mixin';
 
-export default Ember.Mixin.create({
+export default Mixin.create({
   setupInfiniteScroll: function() {
     var _this = this,
     action = this.get('onInfiniteScroll');
@@ -13,7 +14,7 @@ export default Ember.Mixin.create({
         _this.$().find('.infinite-scroll-preloader').show();
         _this.set('loading', true);
 
-        var deferred = Ember.RSVP.defer();
+        var deferred = defer();
         deferred.promise.finally(function() {
           _this.set('loading', false);
           _this.$().find('.infinite-scroll-preloader').hide();

@@ -1,6 +1,7 @@
-import Ember from 'ember';
+import { defer } from 'rsvp';
+import Mixin from '@ember/object/mixin';
 
-export default Ember.Mixin.create({
+export default Mixin.create({
   setupPullToRefresh: function() {
     var _this = this,
     action = this.get('onPullToRefresh');
@@ -9,7 +10,7 @@ export default Ember.Mixin.create({
       this.set('hasPullToRefresh', true);
       this.get('f7.f7').initPullToRefresh(this.$());
       this.$().on('refresh', function() {
-        var deferred = Ember.RSVP.defer();
+        var deferred = defer();
         deferred.promise.finally(function() {
           _this.get('f7.f7').pullToRefreshDone();
         });
